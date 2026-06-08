@@ -177,8 +177,8 @@ class RedirectMiddleware
         }
 
         $uri = self::redirectUri($request, $response, $protocols);
-        $idnOptions = Utils::normalizeIdnConversionOption($options['idn_conversion'] ?? null);
-        if ($idnOptions !== null) {
+        if (isset($options['idn_conversion']) && ($options['idn_conversion'] !== false)) {
+            $idnOptions = ($options['idn_conversion'] === true) ? \IDNA_DEFAULT : $options['idn_conversion'];
             $uri = Utils::idnUriConvert($uri, $idnOptions);
         }
 

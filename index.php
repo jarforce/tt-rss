@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tiny Tiny RSS</title>
+	<title>F309</title>
     <meta name="viewport" content="initial-scale=1,width=device-width" />
 
 	<?php if ($_SESSION["uid"] && empty($_SESSION["safe_mode"])) {
@@ -132,11 +132,11 @@
 <div id="cmdline" style="display : none"></div>
 
 <div id="main" dojoType="dijit.layout.BorderContainer">
-    <!-- Dims the page behind the feed drawer in narrow/phone layout; tap to close.
+	    <!-- Dims the page behind the feed drawer in narrow/phone layout; tap to close.
          Must live inside #main (which is a stacking context) so it stacks below
          the drawer rather than above it. BorderContainer ignores non-widget children. -->
     <div id="feeds-holder-backdrop" onclick="App.toggleSidebar(false)"></div>
-    <div id="feeds-holder" dojoType="dijit.layout.ContentPane" region="leading" style="width : 20%" splitter="true">
+    <div id="feeds-holder" dojoType="dijit.layout.ContentPane" region="leading" style="width : 15%" splitter="true">
         <div id="feedlistLoading" class="text-center text-muted text-small">
 			  	<img class="icon-three-dots" src="images/three-dots.svg?2">
 				<?= __("Loading, please wait..."); ?>
@@ -153,11 +153,11 @@
         <div id="toolbar-frame" dojoType="dijit.layout.ContentPane" region="top">
             <div id="toolbar" dojoType="fox.Toolbar">
 
-					<!-- order -1: feed drawer toggle (the app logo), shown only in narrow/phone layout -->
-					<img class="sidebar-toggle" src="images/favicon-72px.png" alt="" draggable="false" role="button" tabindex="0"
+					<!-- order -1: feed drawer toggle, shown only in narrow/phone layout -->
+					<i class="material-icons sidebar-toggle" role="button" tabindex="0"
 						aria-expanded="false" title="<?= __('Toggle feed list') ?>"
 						onclick="App.toggleSidebar()"
-						onkeydown="if (event.key === 'Enter' || event.key === ' ') { App.toggleSidebar(); event.preventDefault(); }">
+						onkeydown="if (event.key === 'Enter' || event.key === ' ') { App.toggleSidebar(); event.preventDefault(); }">menu</i>
 
 			 	<!-- order 0, default -->
 
